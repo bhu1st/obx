@@ -140,7 +140,7 @@ The API implementing OBX provides a mechanism to generate the next move based on
 #### **Example Request**
 ```json
 {
-  "obx": "GGGGG/GTTTG/GXTXG/GXXXG/GGGGG t c1 mC5 #"
+  "obx": "TGXXT/XXXXX/XXXXX/XXXXX/TXXXT t c0 mB1 #g1"
 }
 ```
 
@@ -154,8 +154,9 @@ The API implementing OBX provides a mechanism to generate the next move based on
 #### **Example Response**
 ```json
 {
-  "next_move": "mC5C4",
-  "updated_obx": "GGGGG/GTTTG/GXTXG/GXTXG/GGGGG g c1 mC5C4 #"
+  "input": "TGXXT/XXXXX/XXXXX/XXXXX/TXXXT t c0 mB1 #g1"
+  "obx": "XXTXT/XXXXX/XXGXX/XXXXX/TXXXX g c1 mA1C3(B1) #t1",
+  "move" : "mA1C3(B1)"
 }
 ```
 
@@ -170,7 +171,7 @@ The API implementing OBX provides a mechanism to generate the next move based on
 ## Integration Guide
 
 ### **1. Step-by-Step Usage**
-1. Submit the current board state in OBX format to the `/nextmove` endpoint.
+1. Submit the current board state in OBX format to the `/obx` endpoint.
 2. Parse the response to retrieve the suggested move and updated OBX string.
 3. Apply the move in your game logic or UI.
 
@@ -185,7 +186,7 @@ The API implementing OBX provides a mechanism to generate the next move based on
    ```json
    {
      "input": "TGXXT/XXXXX/XXXXX/XXXXX/TXXXT t c0 mB1 #g1"
-	 "obx": "XXTXT/XXXXX/XXGXX/XXXXX/TXXXX g c1 mA1C3(B1)",
+	 "obx": "XXTXT/XXXXX/XXGXX/XXXXX/TXXXX g c1 mA1C3(B1) #t1",
 	 "move" : "mA1C3(B1)"
    }
    ```
