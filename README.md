@@ -148,8 +148,9 @@ The API implementing OBX provides a mechanism to generate the next move based on
 #### **Output Fields**
 | Field        | Type   | Description                                 |
 |--------------|--------|---------------------------------------------|
-| `next_move`  | string | Suggested move in `mPN` or `mN` format.    |
-| `updated_obx`| string | Updated board state after the suggested move. |
+| `input`  | string | Current board state OBX.    |
+| `obx`| string | Updated board state OBX after the suggested move. |
+| `move`| string | Next move. |
 
 #### **Example Response**
 ```json
