@@ -126,7 +126,7 @@ This represents the initial state of the game:
 The API implementing OBX provides a mechanism to generate the next move based on the current board state represented in OBX format. It supports move validation and board state manipulation.
 
 ### **2. Endpoint**
-- **URL**: `/nextmove`
+- **URL**: `/obx`
 - **Method**: GET
 - **Input Format**: JSON
 - **Output Format**: JSON
