@@ -1,5 +1,7 @@
 # Online Baghchal Exchange (OBX) Notation and API Documentation
 
+Version: OBX 2.0 
+
 ## Introduction
 OBX (Online Baghchal Exchange) is a notation system designed to simplify recording Baghchal games. This system provides a concise way to represent the board state, moves, and outcomes for offline and online gameplay. The OBX format also facilitates software development for Baghchal by offering a standardized way to interact with the game state.
 
