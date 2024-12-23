@@ -36,7 +36,7 @@ Baghchal board with a goat at the center position (C3):
 ### **1. Symbols**
 - **T**: Tiger.
 - **G**: Goat.
-- **X**: Empty space.
+- **X**: Empty space (room).
 - **A1** to **E5**: Grid positions (Columns A-E, Rows 1-5).
 
 ### **2. Components**
