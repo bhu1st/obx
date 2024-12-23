@@ -5,7 +5,7 @@ Version: OBX 2.0
 ## Introduction
 OBX (Online Baghchal Exchange) is a notation system designed to simplify recording Baghchal games. This system provides a concise way to represent the board state, moves, and outcomes for offline and online gameplay. The OBX format also facilitates software development for Baghchal by offering a standardized way to interact with the game state.
 
-This documentation outlines the OBX notation and provides details about a reusable API for developers and researchers.
+This documentation outlines the OBX notation and provides details about a reusable API for developers and researchers. It explains how to represent and track the state of a Baghchal game using a standard notation system. It includes details on how to denote the board state, track turns, capture counts, and represent moves for both goats and tigers, along with their respective move numbers.
 
 Baghchal game start position:
 
@@ -19,7 +19,7 @@ Baghchal game start position:
 ```
 
 ```
-OBX: TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g c0 - 0
+OBX: TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g c0 - #
 ```
 
 Baghchal board with a goat at the center position (C3):
@@ -34,12 +34,18 @@ Baghchal board with a goat at the center position (C3):
 ```
 
 ```
-OBX: TXXXT/XXXXX/XXGXX/XXXXX/TXXXT t c0 mC3 1
+OBX: TXXXT/XXXXX/XXGXX/XXXXX/TXXXT t c0 mC3 #g1
 ```
 
 ---
 
 ## OBX Notation
+
+The notation format used to represent the state of the game is as follows:
+```
+[Board State] [Turn t,g] c[Captured Goat Count] n[Last Move] #[t,g][Move Number]
+```
+
 
 ### **1. Symbols**
 - **T**: Tiger.
@@ -64,29 +70,53 @@ OBX: TXXXT/XXXXX/XXGXX/XXXXX/TXXXT t c0 mC3 1
 #### **d. Last Move**
 - **Goat Placement**: `mN` (e.g., `mC1` for placing a goat on C1).
 - **Movement**: `mPN` (e.g., `mA1B1` for a piece moving from A1 to B1).
+- **Capture** `mA1C1(B1)`: Moving a tiger from A1 to C1 and capturing a goat at B1.
 - Use `-` if no last move is recorded.
 
 #### **e. Move Number (Optional)**
-- Starts at 0 and increments with each turn.
+- A string starting with `#` followed by the player (`g` for goats, `t` for tigers) and the move number:
+   - `#g1`: Goats' 1st move.
+   - `#t3`: Tigers' 3rd move.
 - Use `-` if not recorded.
 
-### **3. Example OBX Strings**
-#### **Example 1**:
-- OBX: `GGGGG/GTTTG/GXTXG/GXXXG/GGGGG t c1 mC5 -`
-- Meaning:
-  - **Board State**: Tigers are in the center, surrounded by goats.
-  - **Turn**: Tiger's turn.
-  - **Captured Goats**: 1 goat captured.
-  - **Last Move**: Goat placed on C5.
 
-#### **Example 2**:
-- OBX: `GGGGG/GTTTG/GXTXG/GXXXG/GGGGG g c2 mA3B3 12`
-- Meaning:
-  - **Board State**: Similar to Example 1.
-  - **Turn**: Goat's turn.
-  - **Captured Goats**: 2 goats captured.
-  - **Last Move**: Tiger moved from A3 to B3.
-  - **Move Number**: 12.
+### **3. Example Notation**
+
+```
+TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g c0 - #
+```
+
+This represents the initial state of the game:
+- Board State: `TXXXT/XXXXX/XXXXX/XXXXX/TXXXT`
+- Turn: `g` (goats' turn)
+- Captured Count: `c0` (no goats captured)
+- Move: `-` (no move yet)
+- Move Number: `#`
+
+## Example Sequence of Moves
+
+1. **Initial State**:
+   ```
+   TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g c0 - #
+   ```
+
+2. **Place a goat at B2**:
+   ```
+   TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g c0 - #
+   TXXXT/XGXXX/XXXXX/XXXXX/TXXXT t c0 mB2 #g1
+   ```
+
+3. **Move a tiger from A1 to B2**:
+   ```
+   TXXXT/XGXXX/XXXXX/XXXXX/TXXXT t c0 mB2 #g1
+   TXTXT/TXXXX/XXXXX/XXXXX/TXXXT g c0 mA1B2 #t1
+   ```
+
+4. **Place another goat at C2**:
+   ```
+   TXTXT/TXXXX/XXXXX/XXXXX/TXXXT g c0 mA1B2 #t1
+   TXTXT/TGXXX/XXXXX/XXXXX/TXXXT t c0 mC2 #g2
+   ```
 
 ---
 
@@ -110,7 +140,7 @@ The API implementing OBX provides a mechanism to generate the next move based on
 #### **Example Request**
 ```json
 {
-  "obx": "GGGGG/GTTTG/GXTXG/GXXXG/GGGGG t c1 mC5 -"
+  "obx": "GGGGG/GTTTG/GXTXG/GXXXG/GGGGG t c1 mC5 #"
 }
 ```
 
@@ -125,7 +155,7 @@ The API implementing OBX provides a mechanism to generate the next move based on
 ```json
 {
   "next_move": "mC5C4",
-  "updated_obx": "GGGGG/GTTTG/GXTXG/GXTXG/GGGGG g c1 mC5C4 -"
+  "updated_obx": "GGGGG/GTTTG/GXTXG/GXTXG/GGGGG g c1 mC5C4 #"
 }
 ```
 
@@ -148,14 +178,14 @@ The API implementing OBX provides a mechanism to generate the next move based on
 1. **Current Board State**:
    ```json
    {
-     "obx": "GGGGG/GTTTG/GXTXG/GXXXG/GGGGG t c1 mC5 -"
+     "obx": "GGGGG/GTTTG/GXTXG/GXXXG/GGGGG t c1 mC5 #"
    }
    ```
 2. **API Response**:
    ```json
    {
      "next_move": "mC5C4",
-     "updated_obx": "GGGGG/GTTTG/GXTXG/GXTXG/GGGGG g c1 mC5C4 -"
+     "updated_obx": "GGGGG/GTTTG/GXTXG/GXTXG/GGGGG g c1 mC5C4 #"
    }
    ```
 3. **Update Game**:
