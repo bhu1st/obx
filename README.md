@@ -178,14 +178,15 @@ The API implementing OBX provides a mechanism to generate the next move based on
 1. **Current Board State**:
    ```json
    {
-     "obx": "GGGGG/GTTTG/GXTXG/GXXXG/GGGGG t c1 mC5 #"
+     "obx": "TGXXT/XXXXX/XXXXX/XXXXX/TXXXT t c0 mB1 #g1"
    }
    ```
-2. **API Response**:
+2. **API Response with OBX of the next move**:
    ```json
    {
-     "next_move": "mC5C4",
-     "updated_obx": "GGGGG/GTTTG/GXTXG/GXTXG/GGGGG g c1 mC5C4 #"
+     "input": "TGXXT/XXXXX/XXXXX/XXXXX/TXXXT t c0 mB1 #g1"
+	 "obx": "XXTXT/XXXXX/XXGXX/XXXXX/TXXXX g c1 mA1C3(B1)",
+	 "move" : "mA1C3(B1)"
    }
    ```
 3. **Update Game**:
