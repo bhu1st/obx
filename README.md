@@ -18,6 +18,10 @@ Baghchal game start position:
 5 T X X X T
 ```
 
+```
+OBX: TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g c0 - 0
+```
+
 Baghchal board with a goat at the center position (C3):
 
 ```
@@ -27,6 +31,10 @@ Baghchal board with a goat at the center position (C3):
 3 X X G X X
 4 X X X X X
 5 T X X X T
+```
+
+```
+OBX: TXXXT/XXXXX/XXGXX/XXXXX/TXXXT t c0 mC3 1
 ```
 
 ---
