@@ -154,18 +154,15 @@ The API implementing OBX provides a mechanism to generate the next move based on
 
 ---
 
-## Repository and Licensing
+### **Projects Supporting OBX**
 
-### **1. GitHub Repository**
-The API and OBX tools will be hosted on GitHub for public access and contributions.
-
-### **2. License**
-The project is open-sourced under the MIT License.
+- Online Baghchal [baghchal.net](https://baghchal.net) 
 
 ---
 
-## Future Enhancements
-- Add AI-based move generation for improved suggestions.
-- Include additional endpoints for advanced game analysis.
 
+## License
+The project is open-sourced under the MIT License.
+
+---
 
