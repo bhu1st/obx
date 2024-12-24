@@ -192,12 +192,12 @@ The API implementing OBX provides a mechanism to generate the next move based on
    }
    ```
 3. **Update Game**:
-   - Move tiger from C5 to C4.
+   - Move tiger from A1 to C3, remove goat at B1 which is captured.
    - Update the game state and turn.
 
 ---
 
-### **Projects Supporting OBX**
+### **Projects Using OBX**
 
 - Online Baghchal [baghchal.net](https://baghchal.net) 
 
