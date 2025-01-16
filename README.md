@@ -113,7 +113,7 @@ This represents the initial state of the game:
 
 3. **Move a tiger from A1 to B2**:
    ```
-   TXXXT/XGXXX/XXXXX/XXXXX/TXXXT t c0 mB2 #g1
+   TXXXT/XGXXX/XXXXX/XXXXX/TXXXT t @19 c0 mB2 #g1
    TXTXT/TXXXX/XXXXX/XXXXX/TXXXT g @19 c0 mA1B2 #t1
    ```
 
