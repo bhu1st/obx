@@ -93,7 +93,7 @@ TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g @20 c0 - #
 This represents the initial state of the game:
 - Board State: `TXXXT/XXXXX/XXXXX/XXXXX/TXXXT`
 - Turn: `g` (goats' turn)
-- Remaining Goats Count: @20 (all goats are outside the board)  
+- Remaining Goats Count: `@20` (all goats are outside the board)  
 - Captured Count: `c0` (no goats captured)
 - Move: `-` (no move yet)
 - Move Number: `#`
@@ -102,12 +102,12 @@ This represents the initial state of the game:
 
 1. **Initial State**:
    ```
-   TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g c0 - #
+   TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g @20 c0 - #
    ```
 
 2. **Place a goat at B2**:
    ```
-   TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g c0 - #
+   TXXXT/XXXXX/XXXXX/XXXXX/TXXXT g @20 c0 - #
    TXXXT/XGXXX/XXXXX/XXXXX/TXXXT t @19 c0 mB2 #g1
    ```
 
