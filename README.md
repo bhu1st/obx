@@ -44,7 +44,7 @@ OBX: TXXXT/XXXXX/XXGXX/XXXXX/TXXXT t @19 c0 mC3 #g1
 
 The notation format used to represent the state of the game is as follows:
 ```
-[Board State] [Turn t,g] @[Remaining Goat Count] c[Captured Goat Count] n[Last Move] #[t,g][Move Number]
+[Board State] [Turn t,g] @[Remaining Goat Count] c[Captured Goat Count] m[Last Move] #[t,g][Move Number]
 ```
 
 
