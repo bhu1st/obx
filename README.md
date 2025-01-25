@@ -204,7 +204,8 @@ The API implementing OBX provides a mechanism to generate the next move based on
 
 ### **Projects Using OBX**
 
-- Online Baghchal [baghchal.net](https://baghchal.net) 
+- Online Baghchal [www.baghchal.net](https://baghchal.net)
+- OBX Draft by Bhupal Sapkota [v1.0](https://bhupalsapkota.com/baghchal/baghchal-obx-notation.pdf)
 
 ---
 
